@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor de Realidad Aumentada</title>
+  
+  <!-- Importamos la librería -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  
+  <!-- Estilos para que el visor ocupe toda la pantalla de la nueva pestaña -->
   <style>
-    body { margin: 0; padding: 0; background-color: #f0f0f0; overflow: hidden; } 
-    model-viewer { width: 100vw; height: 100vh; }
-    .boton-ar {
-      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-      background-color: #7a3a30; color: white; padding: 15px 30px; 
-      border-radius: 30px; font-family: sans-serif; font-weight: bold;
-      font-size: 16px; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.3); cursor: pointer;
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
+
+  <!-- Visor principal con todos los permisos y preferencias para WebXR y Scene Viewer -->
   <model-viewer 
     src="https://raw.githubusercontent.com/erendiramunare-hub/model3d/main/encatrinados%203d.glb" 
-    camera-controls auto-rotate shadow-intensity="1" ar>
-    <button slot="ar-button" class="boton-ar">
-      📱 Ver Encatrinados en AR
-    </button>
+    ar 
+    ar-modes="webxr scene-viewer quick-look" 
+    camera-controls 
+    auto-rotate>
   </model-viewer>
+
 </body>
 </html>
